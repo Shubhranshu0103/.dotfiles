@@ -56,6 +56,10 @@
     enableSyntaxHighlighting = true;
   };
 
-  programs.go.enable = true;
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+  };
 
 }

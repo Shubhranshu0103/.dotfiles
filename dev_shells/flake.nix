@@ -15,9 +15,10 @@
     devShells.${system} = rec {
       goShell = mkShell {
         name = "Shell for Go Lang";
-        buildInputs = [ go ];
+        buildInputs = [ go gopls go-outline ];
         shellHook = ''
             echo "Welcome to GoLang Shell!"
+            unset GOPATH
         '';
       };
 

@@ -140,7 +140,13 @@
   # Changing Lid close behavior
   services.logind.extraConfig = "HandleLidSwitch=suspend-then-hibernate";
 
-  #Enabling Nix Flakes
+  # Enabling Nix Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
+
+  # Adding Fonts
+  fonts.fonts = with pkgs; [
+    fira-code
+    jetbrains-mono
+  ];
 
 }
