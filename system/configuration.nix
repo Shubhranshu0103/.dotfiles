@@ -93,6 +93,7 @@
       firefox
     #  thunderbird
     ];
+    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -106,6 +107,8 @@
     tmux
   #  wget
   ];
+
+  environment.pathsToLink = [ "/share/zsh" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
