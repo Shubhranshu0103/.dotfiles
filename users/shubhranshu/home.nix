@@ -25,6 +25,7 @@
     gparted 
     vscode
     git
+    blender
   ];
 
   programs.vim = {

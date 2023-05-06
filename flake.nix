@@ -5,10 +5,9 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-22.11";
     home-manager.url = "github:nix-community/home-manager/release-22.11";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = {nixpkgs, home-manager, hyprland, ...}: 
+  outputs = {nixpkgs, home-manager, ...}: 
   let
     system = "x86_64-linux";
 
@@ -26,8 +25,6 @@
         inherit pkgs;
         modules = [
           ./users/shubhranshu/home.nix
-          hyprland.homeManagerModules.default
-          { wayland.windowManager.hyprland.enable = true;}
         ];
       };
     };
@@ -37,13 +34,6 @@
 
         modules = [
           ./system/configuration.nix
-          hyprland.nixosModules.default
-          {programs.hyprland = {
-            enable = true;
-            nvidiaPatches = true;
-            
-          };
-          }
           {
             programs.xwayland.enable = true;
           }
