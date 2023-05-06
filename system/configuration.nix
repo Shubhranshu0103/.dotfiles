@@ -145,7 +145,5 @@
   #Enabling Hyperland
   #programs.hyprland.enable = true;
 
-  #Allow home-manager to user Global Config
-  home-manager.useGlobalPkgs = true;
 
 }

@@ -1,12 +1,6 @@
 { config, pkgs, ... }:
 
-let
-  flake-compat = builtins.fetchTarball "https://github.com/edolstra/flake-compat/archive/master.tar.gz";
-
-  hyprland = (import flake-compat {
-    src = builtins.fetchTarball "https://github.com/hyprwm/Hyprland/archive/master.tar.gz";
-  }).defaultNix;
-in {
+{
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "shubhranshu";
@@ -29,6 +23,7 @@ in {
   home.packages = with pkgs; [
     htop 
     gparted 
+    vscode
     git
   ];
 
@@ -40,16 +35,10 @@ in {
     '';
   };
 
-  imports = [
-    hyprland.homeManagerModules.default
-  ];
-
-  wayland.windowManager.hyprland = {
+  programs.git = {
     enable = true;
-
-    extraConfig = ''
-      bind = SUPER, Return, exec, kitty
-      # ...
-    '';
+    userName = "shubhranshu0103";
+    userEmail = "shubhranshusingh.work@gmail.com";
   };
+
 }
