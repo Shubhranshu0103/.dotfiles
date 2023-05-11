@@ -13,7 +13,7 @@
 
     pkgs = import nixpkgs {
       inherit system;
-      config = { allowUnfree = true;};
+      config = { allowUnfree = true; allowBroken = false; };
     };
     #pkgs = nixpkgs.legacyPackages.${system};
 

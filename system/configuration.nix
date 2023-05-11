@@ -89,8 +89,11 @@
       mysql80
     #  thunderbird
     ];
+    shell = pkgs.zsh;
   };
 
+  # Add user in trusted Users
+  nix.settings.trusted-users = ["root" "shubhranshu"] ;
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -136,4 +139,9 @@
   # Enabling Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # Setting up Redis Service
+  services.redis.servers."euler" = {
+    enable = true;
+    port = 6379;
+  };
 }

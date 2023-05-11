@@ -23,12 +23,27 @@
   home.packages = with pkgs; [
     htop 
     gparted 
-    vscode
     git
     google-chrome
     slack
     redis
+    libgccjit
+    haskell-language-server
+    stack
+    ghc
   ];
+
+  programs.vscode = {
+    enable = true;
+    enableExtensionUpdateCheck = true;
+    extensions = with pkgs.vscode-extensions;[
+      jnoortheen.nix-ide
+      haskell.haskell
+      cweijan.vscode-database-client2
+      justusadam.language-haskell
+    ];
+  };
+
 
   programs.vim = {
     enable = true;
@@ -56,6 +71,7 @@
     enableAutosuggestions = true;
     enableCompletion = true;
     enableSyntaxHighlighting = true;
+    initExtra = builtins.readFile(./configs/zsh/zshrc);
   };
 
   programs.starship = {
@@ -68,5 +84,6 @@
     enable = true;
     clock24 = true;
     extraConfig = builtins.readFile(./configs/tmux/tmux.conf);
+    shell = "~/.nix-profile/bin/zsh";
   };
 }

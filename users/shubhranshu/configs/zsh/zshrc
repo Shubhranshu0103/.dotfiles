@@ -1,0 +1,2 @@
+export PATH=$PATH:~/Work/EnvRepos/euler-tools/euler-bin
+export PATH=$PATH:~/.local/bin
