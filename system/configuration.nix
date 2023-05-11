@@ -3,6 +3,7 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
 { config, pkgs, ... }:
+
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -13,10 +14,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot/efi";
-
-  # Adding FileSystem Support
-  boot.supportedFilesystems = [ "ntfs"];
-
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -29,9 +27,6 @@
 
   # Set your time zone.
   time.timeZone = "Asia/Kolkata";
-
-  # Fixing System time on dual boot with Windows
-  time.hardwareClockInLocalTime = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_IN";
@@ -87,13 +82,13 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.shubhranshu = {
     isNormalUser = true;
-    description = "shubhranshu";
+    description = "Shubhranshu";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
+      mysql80
     #  thunderbird
     ];
-    shell = pkgs.zsh;
   };
 
   # Allow unfree packages
@@ -102,13 +97,10 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    cool-retro-term
-    tmux
+   #vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
+    #mysql80
   ];
-
-  environment.pathsToLink = [ "/share/zsh" ];
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -121,7 +113,7 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  # services.openssh.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -137,16 +129,11 @@
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "22.11"; # Did you read the comment?
 
-  # Changing Lid close behavior
-  services.logind.extraConfig = "HandleLidSwitch=suspend-then-hibernate";
+  
+  services.mysql.enable = true;
+  services.mysql.package = pkgs.mysql80;
 
-  # Enabling Nix Flakes
+  # Enabling Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
-  # Adding Fonts
-  fonts.fonts = with pkgs; [
-    fira-code
-    jetbrains-mono
-  ];
 
 }
