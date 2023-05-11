@@ -25,7 +25,9 @@
     gparted 
     vscode
     git
-    blender
+    google-chrome
+    slack
+    redis
   ];
 
   programs.vim = {
@@ -62,4 +64,9 @@
     enableBashIntegration = true;
   };
 
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    extraConfig = builtins.readFile(./configs/tmux/tmux.conf);
+  };
 }
