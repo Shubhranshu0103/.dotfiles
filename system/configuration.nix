@@ -144,4 +144,11 @@
     enable = true;
     port = 6379;
   };
+
+  # Adding Fonts
+  fonts.fonts = with pkgs; [
+    fira-code
+    jetbrains-mono
+  ];
+
 }
