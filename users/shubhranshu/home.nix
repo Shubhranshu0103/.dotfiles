@@ -1,6 +1,12 @@
 { config, pkgs, ... }:
+let
 
-{
+  myconfig = pkgs.vimUtils.buildVimPlugin {
+    name = "my-config";
+    src = ./my-neovim-config;
+  };
+
+in {
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home.username = "shubhranshu";
@@ -60,6 +66,32 @@
     enable = true;
     enableZshIntegration = true;
     enableBashIntegration = true;
+  };
+
+  programs.bash.enable = true;
+
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
+
+  programs.wezterm = {
+    enable = true;
+    extraConfig = builtins.readFile(./wezterm.lua);
+  };
+
+  programs.tmux = {
+    enable = true;
+    clock24 = true;
+    prefix = "C-space";
+  };
+
+  programs.neovim = {
+    enable = true;
+  };
+
+  xdg.configFile = {
+    "nvim" = {
+      source = ./my-neovim-config/lua;
+    };
   };
 
 }
