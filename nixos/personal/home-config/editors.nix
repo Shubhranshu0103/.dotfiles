@@ -18,7 +18,8 @@ in
 
   xdg.configFile = {
     "nvim" = {
-      source = cfgPath + /neovim;
+      #source = config.lib.file.mkOutOfStoreSymlink  cfgPath + /neovim;
+      source = config.lib.file.mkOutOfStoreSymlink  "/home/shubhranshu/.dotfiles/configs/neovim";
     };
   };
 
