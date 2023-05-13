@@ -18,22 +18,23 @@
     #pkgs = nixpkgs.legacyPackages.${system};
 
     lib = nixpkgs.lib;
+    hostName = "nixos-home";
 
   in {
     homeConfigurations = {
       shubhranshu = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
         modules = [
-          ./users/shubhranshu/home.nix
+          ./home-config/home.nix
         ];
       };
     };
     nixosConfigurations = {
-      nixos = lib.nixosSystem {
+      ${hostName} = lib.nixosSystem {
         inherit system;
 
         modules = [
-          ./system/configuration.nix
+          ./system-config/configuration.nix
           {
             programs.xwayland.enable = true;
           }
