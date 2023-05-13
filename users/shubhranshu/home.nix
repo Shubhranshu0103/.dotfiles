@@ -96,6 +96,7 @@ in {
 
   programs.qutebrowser = {
     enable = true;
+    loadAutoconfig = true;
   };
 
   programs.zoxide = {
