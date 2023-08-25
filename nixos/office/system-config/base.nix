@@ -8,12 +8,11 @@
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
 
   # Adding FileSystem Support
   boot.supportedFilesystems = [ "ntfs"];
 
-  networking.hostName = "nixos-home"; # Define your hostname.
+  networking.hostName = "nixos-office"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -106,7 +105,7 @@
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "22.11"; # Did you read the comment?
+  system.stateVersion = "23.05"; # Did you read the comment?
 
   # Changing Lid close behavior
   services.logind.extraConfig = "HandleLidSwitch=suspend-then-hibernate";

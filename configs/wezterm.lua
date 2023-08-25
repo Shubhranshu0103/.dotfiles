@@ -15,7 +15,7 @@ end
 -- For example, changing the color scheme:
 config.color_scheme = 'Aurora'
 config.font = wezterm.font 'Jetbrains Mono'
-config.font_size = 16
+config.font_size = 12
 config.line_height = 1.2
 config.window_padding = {
   left = 2,

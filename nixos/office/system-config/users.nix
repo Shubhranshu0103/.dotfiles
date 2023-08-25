@@ -6,15 +6,16 @@
 {
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.shubhranshu = {
+  users.users.shubhranshusingh = {
     isNormalUser = true;
-    description = "shubhranshu";
+    description = "Shubhranshu Singh";
     extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
+      git
     #  thunderbird
     ];
-    shell = pkgs.zsh;
+    #  shell = pkgs.zsh;
   };
 
 
