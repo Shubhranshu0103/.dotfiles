@@ -7,6 +7,7 @@
     ./packages.nix
     ./shells.nix
     ./shell-plugins.nix
+    ./shell-utils.nix
     ./terminals.nix
   ];
 
