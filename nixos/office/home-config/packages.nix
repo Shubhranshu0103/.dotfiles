@@ -6,7 +6,7 @@
     gparted 
     vscode
     git
-    blender
+    slack
   ];
 
   programs.direnv.enable = true;

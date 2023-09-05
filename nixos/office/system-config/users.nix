@@ -13,10 +13,17 @@
     packages = with pkgs; [
       firefox
       git
+      gnumake
+      llvmPackages_16.libcxxClang
+      libgccjit
+      dos2unix
+      postman
     #  thunderbird
     ];
-    #  shell = pkgs.zsh;
+     shell = pkgs.zsh;
   };
+
+  programs.zsh.enable = true;
 
 
 }

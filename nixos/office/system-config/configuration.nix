@@ -10,6 +10,7 @@
       ./base.nix
       ./users.nix
       ./nixAndNixPkgs.nix
+      ./systemPackages.nix
       ./fonts.nix
     ];
 

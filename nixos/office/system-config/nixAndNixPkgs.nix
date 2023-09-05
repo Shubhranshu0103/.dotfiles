@@ -12,4 +12,7 @@
   # Enabling Nix Flakes
   nix.settings.experimental-features = ["nix-command" "flakes"];
 
+  # Adding trusted users
+  nix.trustedUsers = [ "root" "shubhranshusingh" ];
+
 }
