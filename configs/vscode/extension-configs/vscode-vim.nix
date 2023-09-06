@@ -13,6 +13,7 @@
       after = ["<Esc>"];
     }
   ];
+
   "vim.handleKeys" = {
     "<C-a>" = false;
     "<C-b>" = false;

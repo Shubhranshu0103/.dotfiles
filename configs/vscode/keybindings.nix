@@ -6,4 +6,14 @@
       cwd = "\${fileDirname}";
     };
   }
+
+  {
+    key = "ctrl+space w";
+    command = "workbench.action.switchWindow";
+  }
+
+  {
+    key = "ctrl+space q w";
+    command = "workbench.action.quickSwitchWindow";
+  }
 ]
